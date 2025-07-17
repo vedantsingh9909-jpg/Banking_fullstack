@@ -1,4 +1,4 @@
-package com.banking.banking.exceptions;
+package com.banking.banking.enums;
 
 public enum ErrorCode {
     VALIDATION_ERROR,

@@ -1,5 +1,6 @@
 package com.banking.banking.exceptions;
 
+import com.banking.banking.enums.ErrorCode;
 import com.banking.banking.exceptions.custom.AccountAlreadyExistException;
 import com.banking.banking.exceptions.custom.UserAlreadyExistException;
 import com.banking.banking.response.ErrorResponse;

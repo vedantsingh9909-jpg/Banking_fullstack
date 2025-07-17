@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.banking.banking.utils.SecurityUtil.getCurrentUserAs;
+import static com.banking.banking.utils.SecurityUtil.getCurrentUser;
 
 
 @Service
@@ -34,7 +34,7 @@ public class AccountService {
 
     public AccountDto create(AccountCreateRequest accountRequest) {
         String accountName = accountRequest.getName();
-        User authenticatedUser = getCurrentUserAs(User.class);
+        User authenticatedUser = getCurrentUser();
         if (accountRepository.existsByNameAndUserId(accountName, authenticatedUser.getId())) {
             log.warn("Account creation failed: username '{}' is already taken.", accountName);
             throw new AccountAlreadyExistException("An account with the given details already exists.");
@@ -52,7 +52,7 @@ public class AccountService {
     }
 
     public List<AccountDto> searchAccounts(AccountSearchRequest searchRequest) {
-        User authenticatedUser = getCurrentUserAs(User.class);
+        User authenticatedUser = getCurrentUser();
 
         String number = Optional.ofNullable(searchRequest.getNumber()).orElse("");
         String name = Optional.ofNullable(searchRequest.getName()).orElse("");
@@ -63,11 +63,11 @@ public class AccountService {
     }
 
     public void delete(UUID id) {
-        accountRepository.deleteByIdAndUserId(id, getCurrentUserAs(User.class).getId());
+        accountRepository.deleteByIdAndUserId(id, getCurrentUser().getId());
     }
 
     public void update(UUID id, AccountUpdateRequest accountUpdateRequest) {
-        UUID userId = getCurrentUserAs(User.class).getId();
+        UUID userId = getCurrentUser().getId();
 
         Account account = accountRepository.findByIdAndUserId(id, userId);
         account.setName(accountUpdateRequest.getName());

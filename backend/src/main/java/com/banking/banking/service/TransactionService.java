@@ -38,7 +38,11 @@ public class TransactionService {
         transaction.setAmount(transactionRequest.getAmount());
 
         try {
-            Account sourceAccount = accountRepository.findByNumberAndUserId(transactionRequest.getFrom(), SecurityUtil.getCurrentUserAs(User.class).getId())
+            Account sourceAccount = accountRepository.findByNumberAndUserId(
+                    transactionRequest.getFrom(),
+                            SecurityUtil.getCurrentUser().
+                                    getId())
+
                     .orElseThrow(() -> new AccountNotFoundException("Source account not found"));
             Account targetAccount = accountRepository.findByNumber(transactionRequest.getTo())
                     .orElseThrow(() -> new AccountNotFoundException("Target account not found"));
@@ -66,7 +70,7 @@ public class TransactionService {
     }
 
     public List<TransactionDto> transactionsByAccountId(String accountId) {
-        UUID userID = SecurityUtil.getCurrentUserAs(User.class).getId();
+        UUID userID = SecurityUtil.getCurrentUser().getId();
         UUID accountUUID = UUID.fromString(accountId);
 
         if (!accountRepository.existsByIdAndUserId(accountUUID, userID)) {

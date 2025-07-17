@@ -58,7 +58,7 @@ public class AuthenticationService {
     }
 
     public LoginResponse me() {
-        User user = SecurityUtil.getCurrentUserAs(User.class);
+        User user = SecurityUtil.getCurrentUser();
         UserDto userDto = userMapper.userToDto(user);
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setUserDto(userDto);
