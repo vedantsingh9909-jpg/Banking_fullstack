@@ -6,6 +6,7 @@ import type { AuthInfo } from "../types/auth";
 const useAuth = (updateAuthInfo: React.Dispatch<React.SetStateAction<AuthInfo | undefined>>) => {
   const [isLoadingAuth, setLoadingAuth] = useState(true);
   const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       try {
@@ -25,3 +26,6 @@ const useAuth = (updateAuthInfo: React.Dispatch<React.SetStateAction<AuthInfo | 
 };
 
 export default useAuth;
+("CAP");
+("Elastic search");
+("Kafka", "Rabbitmq", "Event Sourching", "Bankacılık", "Kubernates", "Load Balancer");
