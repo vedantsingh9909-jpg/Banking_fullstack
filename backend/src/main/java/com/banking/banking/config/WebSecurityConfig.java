@@ -45,6 +45,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> {
+                    // TODO: add csrf protection
                     csrf.disable();
                 })
                 .authorizeHttpRequests(matcher -> {
