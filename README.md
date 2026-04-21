@@ -5,7 +5,7 @@ This project is a full-stack application that includes basic banking operations 
 
 ---
 
-## 🔧 Teknolojiler
+## 🔧Technologies.
 
 ### Backend
 
@@ -24,16 +24,16 @@ This project is a full-stack application that includes basic banking operations 
 
 ---
 
-### Frontend Kurulum ve Çalıştırma
+### Frontend Installation and Execution
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 🐳 Docker ile Veritabanı Başlatma
+## 🐳 Starting the Database with Docker
 
-İsteğe bağlı olarak PostgreSQL veritabanını Docker ile başlatabilirsiniz:
+Optionally, you can start the PostgreSQL database using Docker:
 
 ```bash
 docker-compose -f docker-compose.dev.yml up -d postgres_db
