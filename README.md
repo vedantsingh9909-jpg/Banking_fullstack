@@ -1,6 +1,7 @@
 # Banking Application
 
-Bu proje, temel bankacılık işlemlerini (hesap yönetimi, para transferi, işlem geçmişi vb.) içeren tam yığın bir uygulamadır. Proje hem frontend hem backend katmanından oluşur ve PostgreSQL veritabanı kullanır.
+This project is a full-stack application that includes basic banking operations such as account management, money transfers, and transaction history. The project consists of both frontend and backend layers and uses a PostgreSQL database.
+
 
 ---
 
